@@ -1,6 +1,6 @@
 import 'styles/global.css'
 import type { AppProps } from 'next/app'
-import type { AppRouter } from './api/trpc/[trpc]'
+import type { AppRouter } from 'backend/router'
 import { withTRPC } from '@trpc/next'
 import { VERCEL_API_URL } from 'constants/api-constants'
 
