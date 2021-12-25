@@ -1,6 +1,5 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
 import Image, { ImageProps } from 'next/image'
-import { capitalizeFirstLetter } from 'utils/capitalizeFirstLetter'
 
 type Props = HTMLAttributes<HTMLDivElement>
 
@@ -10,6 +9,7 @@ type CardProps = Props & {
   width: number
   height: number
   image?: ImageProps
+  children: ReactNode
 }
 
 export const Card = ({
@@ -18,10 +18,11 @@ export const Card = ({
   width,
   height,
   image,
+  children,
   ...rest
 }: CardProps) => {
   return (
-    <div {...rest} className="h-64 w-64 flex flex-col">
+    <div {...rest} className="h-64 w-64 flex flex-col items-center">
       <Image
         {...image}
         src={image_url}
@@ -31,9 +32,9 @@ export const Card = ({
         className="w-full"
       />
 
-      <div className="text-xl text-center mt-[-2rem]">
-        {capitalizeFirstLetter(name)}
-      </div>
+      <div className="text-xl text-center capitalize mt-[-2rem]">{name}</div>
+
+      {children}
     </div>
   )
 }
