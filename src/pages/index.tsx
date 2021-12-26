@@ -13,8 +13,14 @@ export default function Home() {
   const secondPokemon = trpc.useQuery(['get-pokemon-by-id', { id: second }])
 
   if (firstPokemon.isLoading && secondPokemon.isLoading) {
-    return <Spinner className="text-slate-300" size="lg" />
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <Spinner className="text-slate-300" />
+      </div>
+    )
   }
+
+  if (!firstPokemon.data || !secondPokemon.data) return null
 
   const voteForRoundest = (selected: number) => {
     //fires mutation
