@@ -25,7 +25,7 @@ export default function Home() {
   const voteForRoundest = (selected: number) => {
     //fires mutation
 
-    setIds(state => [...state, { id: selected }])
+    setIds(getOptionsForVote())
   }
 
   return (
@@ -49,7 +49,7 @@ export default function Home() {
           </Button>
         </Card>
 
-        <div className="p-8">Vs</div>
+        <div className="p-8">VS</div>
         <Card
           image_url={secondPokemon.data?.sprites.front_default}
           name={secondPokemon.data?.name}

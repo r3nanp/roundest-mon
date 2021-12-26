@@ -3,7 +3,7 @@ import Image, { ImageProps } from 'next/image'
 
 type Props = HTMLAttributes<HTMLDivElement>
 
-type CardProps = Props & {
+export type CardProps = Props & {
   name: string
   image_url: string | null
   width: number
@@ -34,7 +34,7 @@ export const Card = ({
         className="w-full"
       />
 
-      <div className="text-xl text-center capitalize mt-[-2rem]">{name}</div>
+      <div className="text-xl text-center capitalize mt-2">{name}</div>
 
       {children}
     </div>

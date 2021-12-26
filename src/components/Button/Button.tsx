@@ -1,7 +1,7 @@
 import { ReactElement, ButtonHTMLAttributes, forwardRef } from 'react'
 import clsx from 'clsx'
 
-import { Spinner } from './Spinner'
+import { Spinner } from '../Spinner'
 
 const variants = {
   primary: 'bg-blue-600 text-white hover:bg-gray-50:text-blue-600',
