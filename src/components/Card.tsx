@@ -5,7 +5,7 @@ type Props = HTMLAttributes<HTMLDivElement>
 
 type CardProps = Props & {
   name: string
-  image_url: string
+  image_url: string | null
   width: number
   height: number
   image?: ImageProps
@@ -25,10 +25,12 @@ export const Card = ({
     <div {...rest} className="h-64 w-64 flex flex-col items-center">
       <Image
         {...image}
-        src={image_url}
+        src={image_url ?? '/blur.png'}
         width={width}
         height={height}
         alt={name}
+        blurDataURL="/blur.png"
+        placeholder="blur"
         className="w-full"
       />
 
