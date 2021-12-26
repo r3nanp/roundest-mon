@@ -2,7 +2,7 @@ import { getRandomInt } from './getRandomInt'
 
 const MAX_DEX_ID = 493
 
-export const getRandomPokemon = (notThisOne?: number) => {
+export const getRandomPokemon = (notThisOne?: number): number => {
   const pokedexNumber = getRandomInt(MAX_DEX_ID + 1)
 
   if (pokedexNumber !== notThisOne) return pokedexNumber
