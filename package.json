@@ -43,6 +43,16 @@
     "tailwindcss": "^3.0.7",
     "typescript": "^4.5.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r3nanp/roundest-mon.git"
+  },
+  "author": "Renan Pereira <renanmol87@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/r3nanp/roundest-mon/issues"
+  },
+  "homepage": "https://github.com/r3nanp/roundest-mon#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
