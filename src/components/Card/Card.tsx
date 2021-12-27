@@ -1,42 +1,54 @@
 import { HTMLAttributes, ReactNode } from 'react'
 import Image, { ImageProps } from 'next/image'
+import { motion, MotionProps } from 'framer-motion'
 
-type Props = HTMLAttributes<HTMLDivElement>
+import { inferQueryResponse } from 'pages/api/trpc/[trpc]'
+import { Button } from 'components'
+
+type PokemonFromServer = inferQueryResponse<'get-pokemon-by-id'>
+
+type Props = MotionProps & HTMLAttributes<HTMLDivElement>
 
 export type CardProps = Props & {
-  name: string
-  image_url: string | null
+  pokemon: PokemonFromServer
   width: number
   height: number
+  vote: () => void
   image?: ImageProps
-  children: ReactNode
 }
 
 export const Card = ({
-  name,
-  image_url,
-  width,
+  pokemon,
   height,
+  width,
   image,
-  children,
+  vote,
   ...rest
 }: CardProps) => {
   return (
-    <div {...rest} className="h-64 w-64 flex flex-col items-center">
+    <motion.div
+      {...rest}
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.1 }}
+      className="h-64 w-64 flex flex-col items-center"
+    >
       <Image
         {...image}
-        src={image_url ?? '/blur.png'}
+        src={pokemon.sprites.front_default ?? '/blur.png'}
         width={width}
         height={height}
-        alt={name}
+        alt={pokemon.name}
         blurDataURL="/blur.png"
         placeholder="blur"
         className="w-full"
       />
 
-      <div className="text-xl text-center capitalize mt-2">{name}</div>
+      <div className="text-xl text-center capitalize mt-2">{pokemon.name}</div>
 
-      {children}
-    </div>
+      <Button onClick={vote} variant="inverse" size="sm">
+        Rounder
+      </Button>
+    </motion.div>
   )
 }
