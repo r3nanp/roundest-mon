@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import { Card, Head, Spinner, Button } from 'components'
 import { getOptionsForVote } from 'utils/getRandomPokemon'
 import { trpc } from 'utils/trpc'
@@ -35,35 +34,19 @@ export default function Home() {
       <div className="my-2 text-2xl text-center">Which pokémon is Rounder?</div>
       <div className="border rounded p-8 flex items-center justify-between max-w-2xl">
         <Card
-          image_url={firstPokemon.data?.sprites.front_default}
-          name={firstPokemon.data?.name}
+          pokemon={firstPokemon.data}
           width={500}
           height={500}
-        >
-          <Button
-            variant="inverse"
-            size="sm"
-            onClick={() => voteForRoundest(first)}
-          >
-            Rounder
-          </Button>
-        </Card>
+          vote={() => voteForRoundest(first)}
+        />
 
         <div className="p-8">VS</div>
         <Card
-          image_url={secondPokemon.data?.sprites.front_default}
-          name={secondPokemon.data?.name}
+          pokemon={secondPokemon.data}
           width={500}
           height={500}
-        >
-          <Button
-            variant="inverse"
-            size="sm"
-            onClick={() => voteForRoundest(second)}
-          >
-            Rounder
-          </Button>
-        </Card>
+          vote={() => voteForRoundest(second)}
+        />
         <div className="p-2"></div>
       </div>
     </div>
