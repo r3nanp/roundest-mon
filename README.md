@@ -35,9 +35,9 @@ At the root of the project, run:
 yarn or npm install
 ```
 
-Copy the `.env.example` file to `.env` and fill the values:
+Copy the `.env.example` file to `.env.local` and fill the values:
 ```bash
-cp .env.example .env
+cp .env.example .env.local
 ```
 
 Run the following command in order to start the application in a development environment:
