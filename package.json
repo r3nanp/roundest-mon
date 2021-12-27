@@ -1,12 +1,23 @@
 {
   "name": "roundest-mon",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r3nanp/roundest-mon.git"
+  },
+  "author": "Renan Pereira <renanmol87@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/r3nanp/roundest-mon/issues"
+  },
+  "homepage": "https://github.com/r3nanp/roundest-mon#readme",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "postinstall": "husky install",
     "lint": "next lint && eslint src/ --max-warnings=0",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -16,6 +27,7 @@
     "@trpc/react": "^9.16.0",
     "@trpc/server": "^9.16.0",
     "clsx": "^1.1.1",
+    "framer-motion": "^5.5.5",
     "next": "12.0.7",
     "pokenode-ts": "^1.10.0",
     "react": "17.0.2",
@@ -50,20 +62,11 @@
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.5.1",
+    "prisma": "^3.7.0",
     "tailwindcss": "^3.0.7",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.5.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/r3nanp/roundest-mon.git"
-  },
-  "author": "Renan Pereira <renanmol87@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/r3nanp/roundest-mon/issues"
-  },
-  "homepage": "https://github.com/r3nanp/roundest-mon#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
